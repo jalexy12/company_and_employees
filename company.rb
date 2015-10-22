@@ -20,7 +20,7 @@ class Company
 		# 	total += employee.weekly_earnings
 		# 	puts "#{employee.name} made: #{employee.weekly_earnings}"
 		# end
-		# total
+		# total	
 		total = @company_employees.reduce(0) do | counter, employee |
 			# 0			, employee 1.weekly_earnings
 			# employee 1, employee 2
@@ -36,26 +36,26 @@ end
 # Name 
 
 class Employee
-	attr_reader(:name, :weekly_salary)
-
-	def initialize(name, hours_worked, hourly_salary)
-		@name = name 
-		@hours_worked = hours_worked
+	attr_accessor(:name, :weekly_salary)
+	
+	def initialize(name, hourly_salary, hours_worked)
+		@name = name
 		@hourly_salary = hourly_salary
+		@hours_worked = hours_worked
 	end
 
 	def name_and_salary
-		puts "Name: #{@name} Salary: #{@weekly_salary}"
+		puts "Name: #{@name} Salary: #{@hourly_salary}"
 	end
 
-	def weekly_earnings
-		@hours_worked * @hourly_salary
-	end
+	# def weekly_earnings
+	# 	@hours_worked * @hourly_salary
+	# end
 end
 
 
-user1 = Employee.new("Josh", 100, 30)
-user2 = Employee.new("Phillip", 40, 250)
+user1 = Employee.new("Josh", 100)
+user2 = Employee.new("Phillip", 400, 25)
 user3 = Employee.new("Evelyn", 60, 70)
 ironhack = Company.new("120 SW 8th ST")
 
